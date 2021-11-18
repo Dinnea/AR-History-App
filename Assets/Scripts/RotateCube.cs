@@ -39,7 +39,6 @@ public class RotateCube : MonoBehaviour
                     }
                     break;
                 case TouchPhase.Ended:
-                    Debug.Log("Touch Phase Ended.");
                     break;
                 case TouchPhase.Stationary:
                     startingPosition = touch.position.x;
