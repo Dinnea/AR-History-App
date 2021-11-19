@@ -47,6 +47,13 @@
 			{
 				var spawnedObject = _spawnedObjects[i];
 				var location = _locations[i];
+				switch (i)
+                {
+					case 0:
+						spawnedObject.gameObject.name = "Twente Airport";
+						break;
+                }
+				
 				spawnedObject.transform.localPosition = _map.GeoToWorldPosition(location, true);
 				spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
 			}
