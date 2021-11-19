@@ -50,7 +50,7 @@
 				switch (i)
                 {
 					case 0:
-						spawnedObject.gameObject.name = "TestPin";
+						spawnedObject.gameObject.name = "Twente Airport";
 						break;
                 }
 				
