@@ -391,8 +391,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9110591372851712046, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
+      propertyPath: _tileProvider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110591372851712046, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
       propertyPath: _options.locationOptions.zoom
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110591372851712046, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
+      propertyPath: _previewOptions.isPreviewEnabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9110591372851712046, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
       propertyPath: _options.extentOptions.extentType
