@@ -9,8 +9,10 @@ public class ARCursor : MonoBehaviour
     public GameObject cursor;
     public GameObject placeholder;
     public ARRaycastManager raycastManager;
+    [SerializeField] MeshRenderer _plane;
 
     public bool useCursor = true;
+    public bool isSceneAdded = false;
 
     private void Start()
     {
@@ -23,11 +25,13 @@ public class ARCursor : MonoBehaviour
             updateCursor();
         }
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && !isSceneAdded)
         {
             if (useCursor) 
             {
                 GameObject.Instantiate(placeholder, transform.position, transform.rotation);
+                isSceneAdded = true;
+                _plane.enabled = false;
             }
             else 
             {
@@ -37,7 +41,10 @@ public class ARCursor : MonoBehaviour
                 {
                     GameObject.Instantiate(placeholder, hits[0].pose.position, hits[0].pose.rotation);
                 }
+                isSceneAdded = true;
+                _plane.enabled = false;
             }
+            
         }
     }
 
