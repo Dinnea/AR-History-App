@@ -47,7 +47,9 @@
 			{
 				var spawnedObject = _spawnedObjects[i];
 				var location = _locations[i];
-				switch (i)
+				//modified the code so the pins can be named individually =>
+				//future use ==> the app will know what data to display depending on the pin name
+				switch (i) 
                 {
 					case 0:
 						spawnedObject.gameObject.name = "Twente Airport";
