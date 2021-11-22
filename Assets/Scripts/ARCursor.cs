@@ -22,6 +22,23 @@ public class ARCursor : MonoBehaviour
         {
             updateCursor();
         }
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            if (useCursor) 
+            {
+                GameObject.Instantiate(placeholder, transform.position, transform.rotation);
+            }
+            else 
+            {
+                List<ARRaycastHit> hits = new List<ARRaycastHit>();
+                raycastManager.Raycast(Input.GetTouch(0).position, hits, TrackableType.Planes);
+                if (hits.Count >0) 
+                {
+                    GameObject.Instantiate(placeholder, hits[0].pose.position, hits[0].pose.rotation);
+                }
+            }
+        }
     }
 
     void updateCursor() 

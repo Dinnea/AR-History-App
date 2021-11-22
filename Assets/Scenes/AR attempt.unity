@@ -423,7 +423,7 @@ Transform:
   m_GameObject: {fileID: 399764025}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
   m_Children: []
   m_Father: {fileID: 1650556121}
   m_RootOrder: 0
@@ -519,7 +519,7 @@ MonoBehaviour:
   cursor: {fileID: 399764025}
   placeholder: {fileID: 1111785780636424, guid: 18593aeac18474b49bebac9e072ef2ab, type: 3}
   raycastManager: {fileID: 2069076292}
-  useCursor: 1
+  useCursor: 0
 --- !u!4 &1650556121
 Transform:
   m_ObjectHideFlags: 0
@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RaycastPrefab: {fileID: 0}
+  m_RaycastPrefab: {fileID: 1650556119}
 --- !u!114 &2069076293
 MonoBehaviour:
   m_ObjectHideFlags: 0
