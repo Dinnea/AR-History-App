@@ -9,10 +9,11 @@ public class ARCursor : MonoBehaviour
     public GameObject cursor;
     public GameObject placeholder;
     public ARRaycastManager raycastManager;
-    [SerializeField] MeshRenderer _plane;
+    public ARPlaneToggle toggle;
 
     public bool useCursor = true;
     public bool isSceneAdded = false;
+    public bool arePlanesOn = true;
 
     private void Start()
     {
@@ -31,7 +32,6 @@ public class ARCursor : MonoBehaviour
             {
                 GameObject.Instantiate(placeholder, transform.position, transform.rotation);
                 isSceneAdded = true;
-                _plane.enabled = false;
             }
             else 
             {
@@ -41,10 +41,14 @@ public class ARCursor : MonoBehaviour
                 {
                     GameObject.Instantiate(placeholder, hits[0].pose.position, hits[0].pose.rotation);
                 }
-                isSceneAdded = true;
-                _plane.enabled = false;
+                isSceneAdded = true;                
             }
-            
+        }
+
+        if (isSceneAdded && arePlanesOn)
+        {
+            toggle.TogglePlanes(false);
+            arePlanesOn = false;
         }
     }
 
