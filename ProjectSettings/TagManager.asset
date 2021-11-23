@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - POI
+  - Label
   layers:
   - Default
   - TransparentFX
