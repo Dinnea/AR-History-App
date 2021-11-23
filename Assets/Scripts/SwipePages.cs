@@ -23,6 +23,9 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
     public Image dot2;
     public Image dot3;
 
+    [SerializeField] Sprite selected;
+    [SerializeField] Sprite notSelected;
+
     Color white;
     Color grey;
 
@@ -49,8 +52,6 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
         Debug.Log("Position: " + transform.position);
         Debug.Log("startLoc: " + startLocation);
         Debug.Log("endLoc: " + endLocation);
-
-        dot1.color = grey;
 
         cube.SetActive(false);
     }
@@ -134,23 +135,23 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
         if (panelLocation.x == panelLocations[0])
         {
             Debug.Log("dot1");
-            dot1.color = grey;
-            dot2.color = white;
-            dot3.color = white;
+            dot1.sprite = selected;
+            dot2.sprite = notSelected;
+            dot3.sprite = notSelected;
         }
         if (panelLocation.x == panelLocations[1])
         {
             Debug.Log("dot2");
-            dot1.color = white;
-            dot2.color = grey;
-            dot3.color = white;
+            dot1.sprite = notSelected;
+            dot2.sprite = selected;
+            dot3.sprite = notSelected;
         }
         if (panelLocation.x == panelLocations[2])
         {
             Debug.Log("dot3");
-            dot1.color = white;
-            dot2.color = white;
-            dot3.color = grey;
+            dot1.sprite = notSelected;
+            dot2.sprite = notSelected;
+            dot3.sprite = selected;
         }
     }
 
