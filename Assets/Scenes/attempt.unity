@@ -230,8 +230,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9463ab78ebd961841859320057dd11dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomOutMin: 1
-  zoomOutMax: 8
+  zoomOutMin: 50
+  zoomOutMax: 500
+  zoomSpeed: 1
 --- !u!1 &300699129 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9221634515212598162, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
