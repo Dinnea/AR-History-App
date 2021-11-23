@@ -134,7 +134,7 @@ namespace Mapbox.Unity.Location
 			}
 
 			InjectEditorLocationProvider();
-			InjectDeviceLocationProvider();
+			//InjectDeviceLocationProvider();
 		}
 
 		/// <summary>

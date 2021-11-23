@@ -26,7 +26,7 @@ public class PanZoom : MonoBehaviour
 
             float difference = currentMagnitude - prevMagnitude;
 
-            zoom(difference * zoomSpeed);
+            zoom(-difference * zoomSpeed);
         }
     }
 
