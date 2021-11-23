@@ -5,12 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-   public void EnterAR() 
-   {
-        SceneManager.LoadScene(1);
-   }
-
-    public void ReturnFromAR() 
-    { 
-    }
+    [SerializeField] Camera mapCamera;
+    [SerializeField] Camera ARCamera;
 }
