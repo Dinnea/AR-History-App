@@ -7,5 +7,6 @@ public class TapThePOI : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log(name);
+        //will open the UI
     }
 }
