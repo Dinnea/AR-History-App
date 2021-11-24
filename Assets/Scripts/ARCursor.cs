@@ -15,6 +15,8 @@ public class ARCursor : MonoBehaviour
     public bool isSceneAdded = false;
     public bool arePlanesOn = true;
 
+    [SerializeField] List<GameObject> popUps = new List<GameObject>(4);
+
     private void Start()
     {
         cursor.SetActive(useCursor);
@@ -64,4 +66,33 @@ public class ARCursor : MonoBehaviour
         }
     }
 
+    IEnumerator ExecuteAfterTime(int iteration, float time = 3)
+    {
+        yield return new WaitForSeconds(time);
+
+        // Code to execute after the delay
+        //iteration 1:
+        //turn off panel #1
+        //turn on panel #2
+        //iteration 2:
+        //tun off panel 2
+        //turn on panel 3
+        //iteration 3 turn off panel 3
+
+        switch (iteration) 
+        {
+            case 1:
+                popUps[0].SetActive(false);
+                popUps[1].SetActive(true);
+                break;
+            case 2:
+                popUps[1].SetActive(false);
+                popUps[2].SetActive(true);
+                break;
+            case 3:
+                popUps[2].SetActive(false);
+                break;
+        }
+
+    }
 }

@@ -1,43 +1,13 @@
 {
     "m_SelectedDeviceId": "R58M54DNQFP",
     "m_SelectedPackage": {
-        "deviceId": "R58M54DNQFP",
-        "name": "com.DefaultCompany.ARHistoryApp",
-        "processId": 9058,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "R58M54DNQFP",
-            "name": "com.DefaultCompany.ARHistoryApp",
-            "processId": 7137,
-            "exited": true
-        },
-        {
-            "deviceId": "R58M54DNQFP",
-            "name": "com.DefaultCompany.ARHistoryApp",
-            "processId": 24144,
-            "exited": true
-        },
-        {
-            "deviceId": "R58M54DNQFP",
-            "name": "com.DefaultCompany.ARHistoryApp",
-            "processId": 2850,
-            "exited": true
-        },
-        {
-            "deviceId": "R58M54DNQFP",
-            "name": "com.DefaultCompany.ARHistoryApp",
-            "processId": 6485,
-            "exited": true
-        },
-        {
-            "deviceId": "R58M54DNQFP",
-            "name": "com.DefaultCompany.ARHistoryApp",
-            "processId": 32114,
-            "exited": true
-        },
         {
             "deviceId": "R58M54DNQFP",
             "name": "com.sec.android.app.launcher",
@@ -48,19 +18,31 @@
             "deviceId": "R58M54DNQFP",
             "name": "com.DefaultCompany.ARHistoryApp",
             "processId": 1840,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "R58M54DNQFP",
             "name": "com.DefaultCompany.ARHistoryApp",
             "processId": 5261,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "R58M54DNQFP",
             "name": "com.DefaultCompany.ARHistoryApp",
             "processId": 9058,
-            "exited": false
+            "exited": true
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.DefaultCompany.ARHistoryApp",
+            "processId": 9872,
+            "exited": true
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.DefaultCompany.ARHistoryApp",
+            "processId": 11927,
+            "exited": true
         },
         {
             "deviceId": "R58NB1NJ4QB",
