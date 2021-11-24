@@ -11,42 +11,35 @@ public class PanZoom : MonoBehaviour
 
     public float threshold;
 
-    public GameObject player;
+    public GameObject playerSphere;
 
-    public bool zooming;
+    public bool zooming = true;
 
     // Update is called once per frame
     void Update()
     {
-
-
-        if (Input.touchCount == 2)
+        if (zooming)
         {
-            Touch touchZero = Input.GetTouch(0);
-            Touch touchOne = Input.GetTouch(1);
+            ZoomMap();
+        }
+        else RotateMap();
 
-            Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
-            Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+        transform.LookAt(playerSphere.transform);
+    }
 
-            float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
-            float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
-
-            float difference = currentMagnitude - prevMagnitude;
-
-            if (difference > threshold)
+    void zoom(float increment)
+    {
+        if (Camera.main.transform.position.y + increment > zoomOutMin && Camera.main.transform.position.y + increment < zoomOutMax)
+        {
+            if (Input.touchCount == 2)
             {
-                zoom(-difference * zoomSpeed);
-                zooming = true;
+                Camera.main.transform.position += new Vector3(0, increment, 0);
             }
-            else
-            {
-                RotateMap(touchZero, touchOne);
-                zooming = false;
-            }  
+
         }
     }
 
-    void ZoomMap()
+    void ZoomMap() 
     {
         if (Input.touchCount == 2)
         {
@@ -65,29 +58,22 @@ public class PanZoom : MonoBehaviour
         }
     }
 
-    void RotateMap(Touch touchZero, Touch touchOne)
+    void RotateMap()
     {
         if (Input.touchCount == 2)
         {
+            Touch touchZero = Input.GetTouch(0);
+            Touch touchOne = Input.GetTouch(1);
+
             Vector3 prevPos1 = touchZero.position - touchZero.deltaPosition;  // Generate previous frame's finger positions
             Vector3 prevPos2 = touchOne.position - touchOne.deltaPosition;
 
             Vector3 prevDir = prevPos2 - prevPos1;
             Vector3 currDir = touchOne.position - touchZero.position;
             float angle = Vector2.SignedAngle(prevDir, currDir);
-            player.transform.Rotate(0, angle, 0);  // Rotate by the deltaAngle between the two vectors
-        }
-    }
-
-    void zoom(float increment)
-    {
-        if (Camera.main.transform.position.y + increment > zoomOutMin && Camera.main.transform.position.y + increment < zoomOutMax)
-        {
-            if (Input.touchCount == 2)
-            {
-                Camera.main.transform.position += new Vector3(0, increment, 0);
-            }
-
+            
+            // Rotate by the deltaAngle between the two vectors
+            transform.RotateAround(playerSphere.transform.position, playerSphere.transform.up, angle);
         }
     }
 }

@@ -240,7 +240,7 @@ MonoBehaviour:
   zoomOutMax: 500
   zoomSpeed: 1
   threshold: 0
-  player: {fileID: 1817449270}
+  playerSphere: {fileID: 12731760}
   zooming: 0
 --- !u!114 &96187179
 MonoBehaviour:

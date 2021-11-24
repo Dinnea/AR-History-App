@@ -37,7 +37,7 @@ public class TiltZoom : MonoBehaviour
         z = map(min, max, offset, 0, transform.position.y);
         transform.position = new Vector3(transform.position.x, transform.position.y, z);
 
-        transform.LookAt(playerSphere.transform);
+        
     }
 
 
