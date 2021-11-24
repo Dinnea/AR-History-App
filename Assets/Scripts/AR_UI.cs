@@ -25,10 +25,10 @@ public class AR_UI : MonoBehaviour
             {
                 if (raycastHit.collider.CompareTag("Plane"))
                 {
-                    _number = 4;
+                    popUps[3].SetActive(true);
                 }
             }
-            else if (_number == 4) _number = -1;
+           ;
 
         }
 
@@ -59,7 +59,7 @@ public class AR_UI : MonoBehaviour
                     {
                         popUps[i].SetActive(false);
                     }
-                    popUps[3].SetActive(true);
+                    
                     break;
             }
         }

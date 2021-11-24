@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Full_airplane
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 112ca5cc7649db44f8fe4af9b04260a7, type: 3}
+      propertyPath: m_TagString
+      value: Plane
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 112ca5cc7649db44f8fe4af9b04260a7, type: 3}
 --- !u!1 &6327021573607030718 stripped
