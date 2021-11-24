@@ -72,7 +72,6 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (swipingEnabled)
         {
-            Debug.Log("ONENDDRAG");
             //calculate what the percentage of the length of the drag relative to the screenwidth is
             float percentage = (data.pressPosition.x - data.position.x) / Screen.width;
 
@@ -88,20 +87,16 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
                 //if percentage is negative, add screenWidth (previous screen)
                 if (percentage > 0)
                 {
-                    Debug.Log("Going to next screen");
                     newLocation += new Vector3(-Screen.width, 0, 0);
                 }
                 if (percentage < 0)
                 {
-                    Debug.Log("Going to previous screen");
                     newLocation += new Vector3(Screen.width, 0, 0);
                 }
 
                 //set position and original position to new screen
                 if (newLocation.x <= startLocation.x && newLocation.x > endLocation.x)
                 {
-                    Debug.Log(endLocation.x + " < " + newLocation.x + " <= " + startLocation.x);
-                    Debug.Log("newLocation: " + newLocation);
                     StartCoroutine(SmoothMove(transform.position, newLocation, easing));
                     panelLocation = newLocation;
 
@@ -109,7 +104,6 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
                 }
                 else
                 {
-                    Debug.Log("This is the end");
                     StartCoroutine(SmoothMove(transform.position, panelLocation, easing));
                 }
             }
@@ -130,25 +124,21 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
 
     private void changeDot()
     {
-        Debug.Log("change dot");
 
         if (panelLocation.x == panelLocations[0])
         {
-            Debug.Log("dot1");
             dot1.sprite = selected;
             dot2.sprite = notSelected;
             dot3.sprite = notSelected;
         }
         if (panelLocation.x == panelLocations[1])
         {
-            Debug.Log("dot2");
             dot1.sprite = notSelected;
             dot2.sprite = selected;
             dot3.sprite = notSelected;
         }
         if (panelLocation.x == panelLocations[2])
         {
-            Debug.Log("dot3");
             dot1.sprite = notSelected;
             dot2.sprite = notSelected;
             dot3.sprite = selected;
