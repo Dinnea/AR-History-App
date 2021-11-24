@@ -20,6 +20,7 @@ public class ARCursor : MonoBehaviour
     private void Start()
     {
         cursor.SetActive(useCursor);
+        StartCoroutine(Box1(1));
     }
     private void Update()
     {
@@ -66,7 +67,7 @@ public class ARCursor : MonoBehaviour
         }
     }
 
-    IEnumerator ExecuteAfterTime(int iteration, float time = 3)
+    IEnumerator Box1(int iteration, float time = 3)
     {
         yield return new WaitForSeconds(time);
 
@@ -94,5 +95,6 @@ public class ARCursor : MonoBehaviour
                 break;
         }
 
+        if (iteration<3) Box1(iteration++);
     }
 }
