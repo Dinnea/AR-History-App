@@ -60,7 +60,8 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
 
     private void EnableAR(bool value)
     {
-        throw new NotImplementedException();
+        _AR.SetActive(value);
+        _mainUI.SetActive(!value);
     }
 
     private void ToggleColour(bool value)
