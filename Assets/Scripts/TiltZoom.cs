@@ -18,6 +18,8 @@ public class TiltZoom : MonoBehaviour
     public float v;
     public float z;
 
+    public GameObject playerSphere;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +34,10 @@ public class TiltZoom : MonoBehaviour
         v = map(min, max, 0, 1, transform.position.y);
         transform.rotation = Quaternion.Slerp(q_startRot, q_endRot, v);
 
-
         z = map(min, max, offset, 0, transform.position.y);
         transform.position = new Vector3(transform.position.x, transform.position.y, z);
+
+        transform.LookAt(playerSphere.transform);
     }
 
 

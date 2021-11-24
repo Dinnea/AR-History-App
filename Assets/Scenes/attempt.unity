@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &12731760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4285767203725175603, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
+  m_PrefabInstance: {fileID: 565478709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &13439889 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9110053624635212268, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
@@ -212,7 +217,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96187174}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 124.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -234,6 +239,9 @@ MonoBehaviour:
   zoomOutMin: 40
   zoomOutMax: 500
   zoomSpeed: 1
+  threshold: 0
+  player: {fileID: 1817449270}
+  zooming: 0
 --- !u!114 &96187179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +261,7 @@ MonoBehaviour:
   offset: -100
   v: 0
   z: 0
+  playerSphere: {fileID: 12731760}
 --- !u!1 &259164525
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +723,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4244128440862732649, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264671857466023416, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
