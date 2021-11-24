@@ -32,6 +32,7 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
 
     [SerializeField] private GameObject _AR;
     [SerializeField] private GameObject _mainUI;
+    [SerializeField] private GameObject _map;
 
     private void OnEnable()
     {
@@ -62,6 +63,7 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
     {
         _AR.SetActive(value);
         _mainUI.SetActive(!value);
+        _map.SetActive(!value);
     }
 
     private void ToggleColour(bool value)
