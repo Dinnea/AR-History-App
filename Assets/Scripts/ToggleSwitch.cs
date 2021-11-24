@@ -30,6 +30,9 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
     public delegate void ValueChange(bool value);
     public event ValueChange valueChanged;
 
+    [SerializeField] private GameObject _AR;
+    [SerializeField] private GameObject _mainUI;
+
     private void OnEnable()
     {
         Toggle(isOn);
@@ -37,7 +40,7 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         offY = _toggleIndicator.anchoredPosition.y;
-        onY = backgroundImage.rectTransform.rect.height - _toggleIndicator.rect.height;
+        onY = backgroundImage.rectTransform.rect.height - 1.5f*_toggleIndicator.rect.height;
         _audioSource = this.GetComponent<AudioSource>();
     }
 
@@ -48,10 +51,16 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
             _isOn = value;
             ToggleColour(isOn);
             MoveIndicator(isOn);
+            EnableAR(isOn);
 
             if (playSFX) _audioSource.Play();
             if (valueChanged != null) valueChanged(isOn);
         }
+    }
+
+    private void EnableAR(bool value)
+    {
+        throw new NotImplementedException();
     }
 
     private void ToggleColour(bool value)
