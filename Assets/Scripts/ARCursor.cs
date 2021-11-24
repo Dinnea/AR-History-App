@@ -45,11 +45,11 @@ public class ARCursor : MonoBehaviour
             }
         }
 
-        if (isSceneAdded && arePlanesOn)
+        /*if (isSceneAdded && arePlanesOn)
         {
             toggle.TogglePlanes(false);
             arePlanesOn = false;
-        }
+        }*/
     }
 
     void updateCursor() 
