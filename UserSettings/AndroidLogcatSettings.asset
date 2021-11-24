@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "R58NB1NJ4QB",
+    "m_SelectedDeviceId": "R58M54DNQFP",
     "m_SelectedPackage": {
-        "deviceId": "R58NB1NJ4QB",
+        "deviceId": "R58M54DNQFP",
         "name": "com.DefaultCompany.ARHistoryApp",
-        "processId": 16839,
+        "processId": 24144,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -138,6 +138,12 @@
             "deviceId": "R58M54DNQFP",
             "name": "com.DefaultCompany.ARHistoryApp",
             "processId": 7137,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.DefaultCompany.ARHistoryApp",
+            "processId": 24144,
             "exited": false
         },
         {
