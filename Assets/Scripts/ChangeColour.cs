@@ -4,35 +4,38 @@ using UnityEngine;
 
 public class ChangeColour : MonoBehaviour
 {
-    GameObject _player;
+   
     [SerializeField] Material _closeEnough;
     [SerializeField] Material _tooFar;
-    public float distance;
+    public FindDistance findDistance;
+    float distance;
+    [SerializeField] List<Renderer> _childs;
 
     private void Start()
     {
-        _player = GameObject.Find("Player");
-
+        _childs = new List<Renderer>();
+        findDistance = GetComponent<FindDistance>();
     }
 
     private void Update()
     {
-        distance = ReturnDistance();
+        distance = findDistance.Distance();
 
-        if (distance < 10) 
+        if (distance < 10)
         {
-            
+            foreach (Renderer skin in _childs)
+            {
+                skin.material = _closeEnough;
+            }
+        }
+        else
+        {
+            foreach (Renderer skin in _childs)
+            {
+                skin.material = _tooFar;
+            }
         }
     }
 
-    public float ReturnDistance() 
-    {
-        
-        Vector2 userPosition = new Vector2(_player.transform.position.x, _player.transform.position.z);
-        Vector2 pinPosition = new Vector2(transform.position.x, transform.position.z);
-
-        float distance = Mathf.Abs((userPosition - pinPosition).magnitude);
-
-        return distance;
-    }
+    
 }

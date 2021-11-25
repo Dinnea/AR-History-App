@@ -18,12 +18,13 @@ public class TapThePOI_v2 : MonoBehaviour
             {
                 _tapped = _hitInfo.transform.gameObject;
 
-                Vector2 userPosition = new Vector2(transform.position.x, transform.position.z);
-                Vector2 tappedPosiiton = new Vector2(_tapped.transform.position.x, _tapped.transform.position.z);
-                float distance = tappedPosiiton.magnitude - userPosition.magnitude;
+                float distance = _tapped.GetComponent<FindDistance>().Distance();
+                //Vector2 userPosition = new Vector2(transform.position.x, transform.position.z);
+                //Vector2 tappedPosiiton = new Vector2(_tapped.transform.position.x, _tapped.transform.position.z);
+               // float distance = tappedPosiiton.magnitude - userPosition.magnitude;
 
                 Debug.Log(distance);
-                if (Mathf.Abs(distance) < 10)
+                if (Mathf.Abs(distance) < 20)
                 {
                     if (_hitInfo.transform.gameObject.name == "Twente Airport")
                     {

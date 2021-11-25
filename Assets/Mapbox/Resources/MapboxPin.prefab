@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4975462510289000}
   - component: {fileID: 3692868819524158720}
   - component: {fileID: -370066945494891307}
+  - component: {fileID: 523077019295774003}
   m_Layer: 0
   m_Name: MapboxPin
   m_TagString: POI
@@ -59,6 +60,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42c9d71c4f3b80b47a403d296491e1f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _closeEnough: {fileID: 2100000, guid: 1f9f9c322fb5f4efeb40ada4f2f0c854, type: 2}
+  _tooFar: {fileID: 2100000, guid: 75e84b01b69c114409734915dda0ba23, type: 2}
+  findDistance: {fileID: 0}
+  distance: 0
+  _childs:
+  - {fileID: 23926995882122000}
+  - {fileID: 23951160422349436}
+--- !u!114 &523077019295774003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064074361305596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9b2c3ad4e85794daf45687e72cb354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1406253380433950
