@@ -10,6 +10,8 @@ public class ARCursor : MonoBehaviour
     public GameObject placeholder;
     public ARRaycastManager raycastManager;
     public ARPlaneToggle toggle;
+    [SerializeField]GameObject AR;
+    [SerializeField] Camera arCamera;
 
     public bool useCursor = true;
     public bool isSceneAdded = false;
@@ -42,14 +44,23 @@ public class ARCursor : MonoBehaviour
                 raycastManager.Raycast(Input.GetTouch(0).position, hits, TrackableType.Planes);
                 if (hits.Count >0) 
                 {
-                    GameObject.Instantiate(placeholder, hits[0].pose.position, hits[0].pose.rotation);
+                    GameObject.Instantiate(placeholder, hits[0].pose.position, hits[0].pose.rotation, AR.transform);
                     isSceneAdded = true;
                 }
                               
             }
         }
-        else if (isSceneAdded) 
+        else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && isSceneAdded) 
         { 
+            Ray ray = arCamera.ScreenPointToRay(Input.GetTouch(0).position);
+            RaycastHit objectPressed;
+            if(Physics.Raycast(ray, out objectPressed)) 
+            {
+                if (objectPressed.transform.CompareTag("Plane")) 
+                {
+                    popUps[3].SetActive(true);
+                }
+            }
         }
 
         /*if (isSceneAdded && arePlanesOn)
