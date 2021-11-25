@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 96187175}
   - component: {fileID: 96187178}
   - component: {fileID: 96187179}
+  - component: {fileID: 96187180}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -231,7 +232,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96187174}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9463ab78ebd961841859320057dd11dc, type: 3}
   m_Name: 
@@ -240,7 +241,7 @@ MonoBehaviour:
   zoomOutMax: 500
   zoomSpeed: 1
   threshold: 0
-  playerSphere: {fileID: 12731760}
+  point: {fileID: 12731760}
   zooming: 0
 --- !u!114 &96187179
 MonoBehaviour:
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96187174}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e4a087f57a68ff49afe00b52b6c0c25, type: 3}
   m_Name: 
@@ -259,9 +260,40 @@ MonoBehaviour:
   min: 50
   max: 150
   offset: -100
+  buffer: 0.1
   v: 0
   z: 0
   playerSphere: {fileID: 12731760}
+--- !u!114 &96187180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96187174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd0d938710357e41acb6d09e5a8d8e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomOutMin: 40
+  zoomOutMax: 500
+  zoomSpeed: 1
+  threshold: 0
+  point: {fileID: 12731760}
+  zooming: 1
+  startRot: {x: 20, y: 0, z: 0}
+  endRot: {x: 90, y: 0, z: 0}
+  min: 50
+  max: 150
+  offset: -100
+  buffer: 0.1
+  v: 0
+  z: 0
+  isTilting: 0
+  maxListCount: 10
+  isRotating: 0
+  isZooming: 0
 --- !u!1 &259164525
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +914,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5264671857466023416, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
 --- !u!1 &597352008
 GameObject:

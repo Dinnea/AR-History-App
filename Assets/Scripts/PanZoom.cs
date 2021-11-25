@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PanZoom : MonoBehaviour
 {
-    Vector3 touchStart;
     public float zoomOutMin = 1;
     public float zoomOutMax = 8;
     public float zoomSpeed = 1;
 
     public float threshold;
 
-    public GameObject playerSphere;
+    public GameObject point;
 
     public bool zooming = true;
 
@@ -24,7 +23,7 @@ public class PanZoom : MonoBehaviour
         }
         else RotateMap();
 
-        transform.LookAt(playerSphere.transform);
+        //transform.LookAt(point.transform);
     }
 
     void zoom(float increment)
@@ -71,9 +70,10 @@ public class PanZoom : MonoBehaviour
             Vector3 prevDir = prevPos2 - prevPos1;
             Vector3 currDir = touchOne.position - touchZero.position;
             float angle = Vector2.SignedAngle(prevDir, currDir);
-            
+
             // Rotate by the deltaAngle between the two vectors
-            transform.RotateAround(playerSphere.transform.position, playerSphere.transform.up, angle);
+            transform.RotateAround(point.transform.position, point.transform.up, angle);
+            //transform.Rotate(0, angle, 0);
         }
     }
 }

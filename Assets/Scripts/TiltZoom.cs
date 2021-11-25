@@ -14,6 +14,7 @@ public class TiltZoom : MonoBehaviour
     public float max = 90;
 
     public float offset = -100;
+    public float buffer = 0.1f;
 
     public float v;
     public float z;
@@ -31,11 +32,7 @@ public class TiltZoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        v = map(min, max, 0, 1, transform.position.y);
-        transform.rotation = Quaternion.Slerp(q_startRot, q_endRot, v);
-
-        z = map(min, max, offset, 0, transform.position.y);
-        transform.position = new Vector3(transform.position.x, transform.position.y, z);
+        tiltMap();
 
         
     }
@@ -60,5 +57,18 @@ public class TiltZoom : MonoBehaviour
             return ((toMax - toMin) * (value - min) / (max - min)) + toMin;
         }
         
+    }
+
+    private void tiltMap()
+    {
+        if (transform.position.y > min + buffer && transform.position.y < max - buffer)
+        {
+            v = map(min, max, 0, 1, transform.position.y);
+            transform.rotation = Quaternion.Slerp(q_startRot, q_endRot, v);
+        }
+
+
+        z = map(min, max, offset, 0, transform.position.y);
+        transform.position = new Vector3(transform.position.x, transform.position.y, z);
     }
 }
