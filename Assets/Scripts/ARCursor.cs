@@ -67,7 +67,7 @@ public class ARCursor : MonoBehaviour
         }
     }
 
-    IEnumerator Box2(float time = 3)
+    IEnumerator Box2(float time = 7)
     {
         yield return new WaitForSeconds(time);
 
@@ -77,7 +77,7 @@ public class ARCursor : MonoBehaviour
         StartCoroutine(Box3());
     }
 
-    IEnumerator Box3(float time = 3) 
+    IEnumerator Box3(float time = 5) 
     {
         yield return new WaitForSeconds(time);
 
@@ -87,7 +87,7 @@ public class ARCursor : MonoBehaviour
         StartCoroutine(Box4());
     }
 
-    IEnumerator Box4(float time = 3) 
+    IEnumerator Box4(float time = 5) 
     {
         yield return new WaitForSeconds(time);
 
