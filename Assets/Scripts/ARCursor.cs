@@ -20,7 +20,7 @@ public class ARCursor : MonoBehaviour
     private void Start()
     {
         cursor.SetActive(useCursor);
-        StartCoroutine(Box1(1));
+        StartCoroutine(Box2());
     }
     private void Update()
     {
@@ -67,10 +67,32 @@ public class ARCursor : MonoBehaviour
         }
     }
 
-    IEnumerator Box1(int iteration, float time = 3)
+    IEnumerator Box2(float time = 3)
     {
         yield return new WaitForSeconds(time);
 
+        popUps[0].SetActive(false);
+        popUps[1].SetActive(true);
+
+        StartCoroutine(Box3());
+    }
+
+    IEnumerator Box3(float time = 3) 
+    {
+        yield return new WaitForSeconds(time);
+
+        popUps[1].SetActive(false);
+        popUps[2].SetActive(true);
+
+        StartCoroutine(Box4());
+    }
+
+    IEnumerator Box4(float time = 3) 
+    {
+        yield return new WaitForSeconds(time);
+
+        popUps[2].SetActive(false);
+    }
         // Code to execute after the delay
         //iteration 1:
         //turn off panel #1
@@ -79,22 +101,4 @@ public class ARCursor : MonoBehaviour
         //tun off panel 2
         //turn on panel 3
         //iteration 3 turn off panel 3
-
-        switch (iteration) 
-        {
-            case 1:
-                popUps[0].SetActive(false);
-                popUps[1].SetActive(true);
-                break;
-            case 2:
-                popUps[1].SetActive(false);
-                popUps[2].SetActive(true);
-                break;
-            case 3:
-                popUps[2].SetActive(false);
-                break;
-        }
-
-        if (iteration<3) Box1(iteration++);
-    }
 }
