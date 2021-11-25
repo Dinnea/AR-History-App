@@ -6,16 +6,14 @@ using System.Linq;
 public class Zoom : MonoBehaviour
 {
     // -------- zooming --------
+    [Header ("Zooming")]
     public float zoomOutMin = 1;
     public float zoomOutMax = 8;
     public float zoomSpeed = 1;
 
-    public float threshold;
-    public GameObject point;
-
-    public bool zooming = true;
 
     //--------- tilting ---------
+    [Header ("Tilting")]
     Quaternion q_startRot;
     Quaternion q_endRot;
 
@@ -26,22 +24,22 @@ public class Zoom : MonoBehaviour
     public float max = 90;
 
     public float offset = -100;
-    public float buffer = 0.1f;
 
-    public float v;
-    public float z;
-
-    public bool isTilting;
+    private float v;
+    private float z;
 
     List<float> angles = new List<float>();
     List<float> differences = new List<float>();
 
-    public float maxListCount = 20f;
+    [Header ("Tweak zooming/rotating:")]
+    public float maxListCount = 20f;        //amount of movements used to calculate average difference/angle
+    public float factor;                    //average difference is multiplied by this factor, so it's closer to angle value
 
-    public bool isRotating, isZooming;
-
-    float prevPosY;
-
+    //-------- booleans ---------
+    [Header ("Booleans")]
+    public bool isTilting;
+    public bool isZooming;
+    public bool isRotating;
 
     void Start()
     {
@@ -74,44 +72,42 @@ public class Zoom : MonoBehaviour
             differences.Add(difference);
             angles.Add(angle);
 
-            if (isRotating && !isTilting)
-            {
-                transform.RotateAround(point.transform.position, point.transform.up, angle);
-            }
-            else if (isZooming)
+            if (isTilting || isZooming)
             {
                 zoom(-difference * zoomSpeed);
             }
-
-            if (differences.Count > maxListCount)
+            else if (isRotating)
             {
-                Debug.Log("difference: " + differences.Average() + ", angle: " + angles.Average());
-
-                if (isTilting)
-                {
-                    isZooming = true;
-                    isRotating = false;
-                }
-                else if (differences.Average()*5 > angles.Average())
-                {
-                    isZooming = true;
-                    isRotating = false;
-                }
-                else
-                {
-                    isRotating = true;
-                    isZooming = false;
-                }
-
-                differences.Clear();
-                angles.Clear();
+                transform.Rotate(0, 0, -angle);
             }
+
+            if (!isTilting) rotateOrZoom();
         }
 
-        //if (!isRotating) tiltMap();
         tiltMap();
     }
+    
+    void rotateOrZoom()
+    {
+        if (differences.Count > maxListCount)
+        {
+            Debug.Log("difference: " + differences.Average() + ", angle: " + angles.Average());
 
+            if (Mathf.Abs(differences.Average()) * factor > Mathf.Abs(angles.Average()))
+            {
+                isZooming = true;
+                isRotating = false;
+            }
+            else
+            {
+                isRotating = true;
+                isZooming = false;
+            }
+
+            differences.Clear();
+            angles.Clear();
+        }
+    }
 
     void ZoomMap()
     {
@@ -139,16 +135,14 @@ public class Zoom : MonoBehaviour
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
 
-            Vector3 prevPos1 = touchZero.position - touchZero.deltaPosition;  // Generate previous frame's finger positions
+            Vector3 prevPos1 = touchZero.position - touchZero.deltaPosition;
             Vector3 prevPos2 = touchOne.position - touchOne.deltaPosition;
 
             Vector3 prevDir = prevPos2 - prevPos1;
             Vector3 currDir = touchOne.position - touchZero.position;
             float angle = Vector2.SignedAngle(prevDir, currDir);
 
-            // Rotate by the deltaAngle between the two vectors
-            transform.RotateAround(point.transform.position, point.transform.up, angle);
-            //transform.Rotate(0, angle, 0);
+            transform.Rotate(0, angle, 0);
         }
     }
 
@@ -158,19 +152,6 @@ public class Zoom : MonoBehaviour
     {
         if (transform.position.y > min && transform.position.y < max)
         {
-            if (!isTilting)
-            {
-                if (transform.position.y > prevPosY)
-                {
-                    transform.rotation = q_startRot;
-                    transform.position = new Vector3(0, transform.position.y, offset);
-                }
-                
-                if (transform.position.y < prevPosY)
-                {
-                    transform.rotation = q_endRot;
-                }
-            }
 
             v = map(min, max, 0, 1, transform.position.y);
             transform.rotation = Quaternion.Slerp(q_startRot, q_endRot, v);
@@ -193,11 +174,9 @@ public class Zoom : MonoBehaviour
             {
                 transform.rotation = q_startRot;
                 transform.position += new Vector3(0, 0, offset - transform.position.z);
-                isTilting = false;
+                isTilting = true;
             }
         }
-
-        prevPosY = transform.position.y;
     }
 
     void zoom(float increment)
