@@ -969,6 +969,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
+--- !u!114 &601170726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 752186145429191769, guid: 408fd2cd0442d874d99a7f5bddea548d, type: 3}
+  m_PrefabInstance: {fileID: 1781420615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &742979293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,7 +1357,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990059283}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34f790daca811ec4387298af7aef0b1b, type: 3}
   m_Name: 
@@ -1356,6 +1367,8 @@ MonoBehaviour:
   - {fileID: 928627049}
   - {fileID: 1228761114}
   - {fileID: 1278367373}
+  _aRPlaneManager: {fileID: 601170726}
+  _aRCursor: {fileID: 1336812567}
 --- !u!1 &1228761114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,6 +1464,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39f7fdaab1757514a91ae40f541c9b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1336812567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 752186145818024388, guid: 408fd2cd0442d874d99a7f5bddea548d, type: 3}
+  m_PrefabInstance: {fileID: 1781420615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f82bf13d72afa40b1155c98b2b787d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!20 &1576624242 stripped
@@ -1587,6 +1611,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 752186145818024388, guid: 408fd2cd0442d874d99a7f5bddea548d, type: 3}
+      propertyPath: AR
+      value: 
+      objectReference: {fileID: 808050842}
+    - target: {fileID: 752186145818024388, guid: 408fd2cd0442d874d99a7f5bddea548d, type: 3}
+      propertyPath: arCamera
+      value: 
+      objectReference: {fileID: 1576624242}
+    - target: {fileID: 752186145818024388, guid: 408fd2cd0442d874d99a7f5bddea548d, type: 3}
+      propertyPath: placeholder
+      value: 
+      objectReference: {fileID: 990932125233736344, guid: 41dd6d2a31335064c8608960420b23d1, type: 3}
     - target: {fileID: 752186145818024388, guid: 408fd2cd0442d874d99a7f5bddea548d, type: 3}
       propertyPath: popUps.Array.size
       value: 4

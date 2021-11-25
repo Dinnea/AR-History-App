@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class ShowInfo : MonoBehaviour
 {
-    [SerializeField] GameObject _infoBox;
+  /*  GameObject _infoBox;
     GameObject UI;
 
     private void Start()
     {
         UI = GameObject.Find("UI");
+        _infoBox = UI.FindObject("");
+
     }
 
     private void OnMouseDown()
     {
         //Instantiate(_infoBox, );
-    }
+    }*/
 }
