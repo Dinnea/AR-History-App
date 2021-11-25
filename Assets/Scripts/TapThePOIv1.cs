@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mapbox.Unity.Map;
 
-public class TapThePOI : MonoBehaviour
+public class TapThePOIv1 : MonoBehaviour
 {
     [SerializeField] GameObject _ui;
     void OnMouseDown()
