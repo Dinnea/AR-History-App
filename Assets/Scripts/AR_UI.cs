@@ -7,6 +7,7 @@ public class AR_UI : MonoBehaviour
 {
     [SerializeField] List<GameObject> popUps = new List<GameObject>(4);
     [SerializeField] ARPlaneManager _aRPlaneManager;
+    [SerializeField] ARCursor _aRCursor;
     bool _wasDisplayed = false;
 
     private void Start()
@@ -21,7 +22,14 @@ public class AR_UI : MonoBehaviour
             popUps[0].SetActive(false);
             popUps[1].SetActive(true);
             _wasDisplayed = true;
-            StartCoroutine(Box3());
+            //StartCoroutine(Box3());
+        }
+        if (_aRCursor.isSceneAdded == true) 
+        {
+            popUps[1].SetActive(false);
+            popUps[2].SetActive(true);
+
+            StartCoroutine(Box4());
         }
 
     }

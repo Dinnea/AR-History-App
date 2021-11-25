@@ -7,6 +7,6 @@ public class ShowInfo : MonoBehaviour
     [SerializeField] GameObject _infoBox;
     private void OnMouseDown()
     {
-        _infoBox.SetActive(true);
+        Instantiate(_infoBox);
     }
 }

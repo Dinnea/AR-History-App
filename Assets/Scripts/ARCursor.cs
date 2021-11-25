@@ -43,9 +43,13 @@ public class ARCursor : MonoBehaviour
                 if (hits.Count >0) 
                 {
                     GameObject.Instantiate(placeholder, hits[0].pose.position, hits[0].pose.rotation);
+                    isSceneAdded = true;
                 }
-                isSceneAdded = true;                
+                              
             }
+        }
+        else if (isSceneAdded) 
+        { 
         }
 
         /*if (isSceneAdded && arePlanesOn)
