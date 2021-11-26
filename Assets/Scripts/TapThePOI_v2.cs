@@ -24,7 +24,7 @@ public class TapThePOI_v2 : MonoBehaviour
                // float distance = tappedPosiiton.magnitude - userPosition.magnitude;
 
                 Debug.Log(distance);
-                if (Mathf.Abs(distance) < 20)
+                if (Mathf.Abs(distance) < 100)
                 {
                     if (_hitInfo.transform.gameObject.name == "Twente Airport")
                     {
