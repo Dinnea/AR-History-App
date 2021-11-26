@@ -14,7 +14,7 @@ public class PanZoom : MonoBehaviour
     {
         if (Input.touchCount == 2)
         {
-            Debug.Log("touchCount 2");
+            //Debug.Log("touchCount 2");
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
 
