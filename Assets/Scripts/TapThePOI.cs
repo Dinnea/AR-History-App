@@ -6,6 +6,13 @@ using Mapbox.Unity.Map;
 public class TapThePOI : MonoBehaviour
 {
     [SerializeField] GameObject _ui;
+    GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+    }
+
     void OnMouseDown()
     {
         Debug.Log(name);
