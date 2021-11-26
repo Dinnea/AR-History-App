@@ -2096,6 +2096,8 @@ MonoBehaviour:
   _AR: {fileID: 0}
   _mainUI: {fileID: 0}
   _map: {fileID: 0}
+  _mapCamera: {fileID: 0}
+  _ARCamera: {fileID: 0}
 --- !u!1 &8527196587805218921
 GameObject:
   m_ObjectHideFlags: 0

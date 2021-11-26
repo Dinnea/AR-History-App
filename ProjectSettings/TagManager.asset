@@ -6,6 +6,7 @@ TagManager:
   tags:
   - POI
   - Label
+  - Plane
   layers:
   - Default
   - TransparentFX

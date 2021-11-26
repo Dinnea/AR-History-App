@@ -34,6 +34,9 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private GameObject _map;
 
+    [SerializeField] private Camera _mapCamera;
+    [SerializeField] private Camera _ARCamera;
+
     private void OnEnable()
     {
         Toggle(isOn);
