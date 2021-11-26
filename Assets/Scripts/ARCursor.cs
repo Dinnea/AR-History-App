@@ -45,11 +45,12 @@ public class ARCursor : MonoBehaviour
                 if (hits.Count >0) 
                 {
                     GameObject.Instantiate(placeholder, hits[0].pose.position, hits[0].pose.rotation, AR.transform);
-                    ListOfObjects list = placeholder.GetComponent<ListOfObjects>();
-                    foreach(GameObject model in list.objectsInScene) 
-                    {
-                        model.transform.SetParent(AR.transform, true);
-                    }
+                    /*  ListOfObjects list = placeholder.GetComponent<ListOfObjects>();
+                      foreach(GameObject model in list.objectsInScene) 
+                      {
+                          model.transform.SetParent(AR.transform, true);
+                      }*/
+                    //TextHelper.Instance.SetText(hits[0]. .gameObject.name);
                     isSceneAdded = true;
                 }
                               
@@ -58,12 +59,32 @@ public class ARCursor : MonoBehaviour
         else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && isSceneAdded) 
         { 
             Ray ray = arCamera.ScreenPointToRay(Input.GetTouch(0).position);
+            TextHelper.Instance.SetText("Trying to ray cast");
             RaycastHit objectPressed;
+            Debug.DrawRay(ray.origin, ray.direction, Color.blue, 5.0f);
             if(Physics.Raycast(ray, out objectPressed)) 
             {
+                TextHelper.Instance.SetText(objectPressed.rigidbody.gameObject.name);
                 if (objectPressed.transform.CompareTag("Plane")) 
                 {
                     popUps[3].SetActive(true);
+                }
+            }
+
+            List<ARRaycastHit> hits = new List<ARRaycastHit>();
+            raycastManager.Raycast(Input.GetTouch(0).position, hits);
+            if (hits.Count > 0)
+            {
+                //GameObject.Instantiate(placeholder, hits[0].pose.position, hits[0].pose.rotation, AR.transform);
+                /*  ListOfObjects list = placeholder.GetComponent<ListOfObjects>();
+                  foreach(GameObject model in list.objectsInScene) 
+                  {
+                      model.transform.SetParent(AR.transform, true);
+                  }*/
+                //isSceneAdded = true;
+                if (objectPressed.transform.CompareTag("Plane"))
+                {
+                   // popUps[3].SetActive(true);
                 }
             }
         }
