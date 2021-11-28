@@ -31,6 +31,8 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public GameObject cube;
 
+    [SerializeField] GameObject _toggle;
+
     void Start()
     {
         swipingEnabled = true;
@@ -138,6 +140,7 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
             dot1.sprite = selected;
             dot2.sprite = notSelected;
             dot3.sprite = notSelected;
+            _toggle.SetActive(false);
         }
         if (panelLocation.x == panelLocations[1])
         {
@@ -145,6 +148,7 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
             dot1.sprite = notSelected;
             dot2.sprite = selected;
             dot3.sprite = notSelected;
+            _toggle.SetActive(false);
         }
         if (panelLocation.x == panelLocations[2])
         {
@@ -152,6 +156,7 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
             dot1.sprite = notSelected;
             dot2.sprite = notSelected;
             dot3.sprite = selected;
+            _toggle.SetActive(true);
         }
     }
 
