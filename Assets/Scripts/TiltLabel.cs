@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LookAtCam : MonoBehaviour
+public class TiltLabel : MonoBehaviour
 {
     private void Update()
     {
