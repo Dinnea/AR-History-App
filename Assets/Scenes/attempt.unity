@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 96187176}
   - component: {fileID: 96187175}
   - component: {fileID: 96187178}
+  - component: {fileID: 96187179}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -446,7 +447,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96187174}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9463ab78ebd961841859320057dd11dc, type: 3}
   m_Name: 
@@ -454,6 +455,31 @@ MonoBehaviour:
   zoomOutMin: 50
   zoomOutMax: 500
   zoomSpeed: 1
+--- !u!114 &96187179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96187174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c866de48c9ae98d4cb7f0b12b0e670e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomOutMin: 40
+  zoomOutMax: 500
+  zoomSpeed: 1
+  startRot: {x: 20, y: 0, z: 0}
+  endRot: {x: 90, y: 0, z: 0}
+  min: 50
+  max: 90
+  offset: -100
+  maxListCount: 4
+  factor: 0.8
+  isTilting: 0
+  isZooming: 0
+  isRotating: 0
 --- !u!1 &196754912
 GameObject:
   m_ObjectHideFlags: 0
