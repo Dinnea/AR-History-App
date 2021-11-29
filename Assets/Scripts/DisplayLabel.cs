@@ -26,7 +26,7 @@ public class DisplayLabel : MonoBehaviour
         }
         else
         {
-            Debug.Log("CAM: " + cam.transform.position.y);
+            //Debug.Log("CAM: " + cam.transform.position.y);
 
             if (cam.transform.position.y < displayThreshold)
             {

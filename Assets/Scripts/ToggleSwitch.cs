@@ -44,7 +44,7 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         offY = _toggleIndicator.anchoredPosition.y;
-        onY = backgroundImage.rectTransform.rect.height -5.75f*_toggleIndicator.rect.height;
+        onY = backgroundImage.rectTransform.rect.height -2.3f*_toggleIndicator.rect.height;
         _audioSource = this.GetComponent<AudioSource>();
     }
 

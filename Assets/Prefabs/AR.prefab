@@ -338,7 +338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &752186145658265756
 Transform:
   m_ObjectHideFlags: 0
@@ -452,9 +452,13 @@ MonoBehaviour:
   placeholder: {fileID: 990932125233736344, guid: 41dd6d2a31335064c8608960420b23d1, type: 3}
   raycastManager: {fileID: 752186145429191768}
   toggle: {fileID: 752186145429191770}
+  AR: {fileID: 4046899432076289093}
+  arCamera: {fileID: 752186145839844092}
   useCursor: 0
   isSceneAdded: 0
   arePlanesOn: 1
+  popUps:
+  - {fileID: 0}
 --- !u!1 &752186145839844035
 GameObject:
   m_ObjectHideFlags: 0

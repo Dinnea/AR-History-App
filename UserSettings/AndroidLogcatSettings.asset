@@ -2,8 +2,8 @@
     "m_SelectedDeviceId": "R58M54DNQFP",
     "m_SelectedPackage": {
         "deviceId": "R58M54DNQFP",
-        "name": "com.DefaultCompany.ARHistoryApp",
-        "processId": 21914,
+        "name": "com.BeandustCrusaders.ToThePast",
+        "processId": 24778,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -72,6 +72,66 @@
             "deviceId": "R58M54DNQFP",
             "name": "com.DefaultCompany.ARHistoryApp",
             "processId": 21914,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.DefaultCompany.ARHistoryApp",
+            "processId": 19266,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.DefaultCompany.ARHistoryApp",
+            "processId": 20595,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.DefaultCompany.ARHistoryApp",
+            "processId": 23036,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.DefaultCompany.ARHistoryApp",
+            "processId": 26605,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.BeandustCrusaders.ToThePast",
+            "processId": 2711,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.BeandustCrusaders.ToThePast",
+            "processId": 6812,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.BeandustCrusaders.ToThePast",
+            "processId": 9332,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.BeandustCrusaders.ToThePast",
+            "processId": 20971,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.BeandustCrusaders.ToThePast",
+            "processId": 22850,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.BeandustCrusaders.ToThePast",
+            "processId": 24778,
             "exited": false
         },
         {
