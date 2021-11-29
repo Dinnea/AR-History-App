@@ -10,6 +10,8 @@ public class DisplayLabel : MonoBehaviour
     public GameObject label;
     public GameObject[] labels;
 
+    public int amountOfLabels;
+
     private void Start()
     {
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -20,14 +22,12 @@ public class DisplayLabel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (labels.Length == 0)
+        if (labels.Length < amountOfLabels)
         {
             labels = GameObject.FindGameObjectsWithTag("Label");
         }
         else
         {
-            //Debug.Log("CAM: " + cam.transform.position.y);
-
             if (cam.transform.position.y < displayThreshold)
             {
                 foreach (GameObject label in labels)
