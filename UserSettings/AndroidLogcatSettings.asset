@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R58M54DNQFP",
         "name": "com.BeandustCrusaders.ToThePast",
-        "processId": 22215,
+        "processId": 24759,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -162,6 +162,12 @@
             "deviceId": "R58M54DNQFP",
             "name": "com.BeandustCrusaders.ToThePast",
             "processId": 22215,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.BeandustCrusaders.ToThePast",
+            "processId": 24759,
             "exited": false
         },
         {
