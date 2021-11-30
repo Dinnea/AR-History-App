@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class LoadingScreen : MonoBehaviour
 {
-    [SerializeField] Image _loadingBar;
 
     [SerializeField] Image dot1;
     [SerializeField] Image dot2;
@@ -17,16 +16,14 @@ public class LoadingScreen : MonoBehaviour
     [SerializeField] Sprite notSelected;
 
     public float timeBetweenDots;
-    float prevTime;
-    float startTime;
     public float minLoadingTime;
+    float prevTime;
 
     private void Start()
     {
         StartCoroutine(LoadSceneAsync());
 
         prevTime = Time.time;
-        startTime = Time.time;
     }
 
     IEnumerator LoadSceneAsync()
@@ -34,12 +31,11 @@ public class LoadingScreen : MonoBehaviour
         AsyncOperation operation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(1);
         operation.allowSceneActivation = false;
 
-        while (!operation.isDone)
+        while (!operation.isDone || Time.realtimeSinceStartup < minLoadingTime)
         {
-            //_loadingBar.fillAmount = operation.progress;
             changeDot();
 
-            if (operation.progress >= 0.9f)
+            if (operation.progress >= 0.9f && Time.realtimeSinceStartup > minLoadingTime)
             {
                 operation.allowSceneActivation = true;
             }
@@ -47,16 +43,10 @@ public class LoadingScreen : MonoBehaviour
         }
     }
 
-    private float loadingTime()
-    {
-        Debug.Log("Loading time: " + (Time.time - startTime));
-        return Time.time - startTime;
-    }
-
     private void changeDot()
     {
 
-        float passedTime = Time.time - prevTime;
+        float passedTime = Time.fixedTime - prevTime;
 
         if (passedTime > timeBetweenDots && passedTime < (timeBetweenDots * 2))
         {
@@ -79,7 +69,7 @@ public class LoadingScreen : MonoBehaviour
             dot2.sprite = notSelected;
             dot3.sprite = selected;
 
-            prevTime = Time.time;
+            prevTime = Time.fixedTime;
         }
         /*
         if (passedTime > timeBetweenDots * 4)
