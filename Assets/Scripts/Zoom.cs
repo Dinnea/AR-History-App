@@ -25,6 +25,8 @@ public class Zoom : MonoBehaviour
 
     public float offset = -100;
 
+    public GameObject rotateAround;
+   
     private float v;
     private float z;
 
@@ -82,9 +84,24 @@ public class Zoom : MonoBehaviour
             }
 
             if (!isTilting) rotateOrZoom();
+
+            tiltMap();
         }
 
-        tiltMap();
+        if (isTilting && Input.touchCount == 1)
+        {
+            Debug.Log("one touch");
+            Touch touch = Input.GetTouch(0);
+            Vector2 touchPrevPos = touch.position - touch.deltaPosition;
+
+            Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
+
+            Vector3 prevDir = touchPrevPos - screenCenter;
+            Vector3 currDir = touch.position - screenCenter;
+            float angle = Vector2.SignedAngle(prevDir, currDir);
+
+            transform.RotateAround(rotateAround.transform.position, rotateAround.transform.up, -angle);
+        }  
     }
 
     void rotateOrZoom()
@@ -150,12 +167,13 @@ public class Zoom : MonoBehaviour
 
     private void tiltMap()
     {
+        //StartCoroutine(transformPos());
+
         if (transform.position.y > min && transform.position.y < max)
         {
-
             v = map(min, max, 0, 1, transform.position.y);
             transform.rotation = Quaternion.Slerp(q_startRot, q_endRot, v);
-
+            
             z = map(min, max, offset, 0, transform.position.y);
             transform.position = new Vector3(transform.position.x, transform.position.y, z);
 
@@ -178,6 +196,35 @@ public class Zoom : MonoBehaviour
             }
         }
     }
+
+    /*
+    IEnumerator transformPos()
+    {
+        if (transform.position.y > min && transform.position.y < max)
+        {
+            z = map(min, max, offset, 0, transform.position.y);
+            transform.position = new Vector3(transform.position.x, transform.position.y, z);
+
+            isTilting = true;
+        }
+        else if (isTilting)
+        {
+            if (transform.position.y > max)
+            {
+                transform.position += new Vector3(0, 0, -transform.position.z);
+                isTilting = false;
+            }
+
+            if (transform.position.y < min)
+            {
+                transform.position += new Vector3(0, 0, offset - transform.position.z);
+                isTilting = true;
+            }
+        }
+
+        yield return null;
+    }
+    */
 
     void zoom(float increment)
     {

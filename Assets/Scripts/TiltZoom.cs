@@ -31,13 +31,26 @@ public class TiltZoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        v = map(min, max, 0, 1, transform.position.y);
-        transform.rotation = Quaternion.Slerp(q_startRot, q_endRot, v);
+        if (Input.touchCount == 2)
+        {
+            v = map(min, max, 0, 1, transform.position.y);
+            transform.rotation = Quaternion.Slerp(q_startRot, q_endRot, v);
+        }
 
-        z = map(min, max, offset, 0, transform.position.y);
-        transform.position = new Vector3(transform.position.x, transform.position.y, z);
+        StartCoroutine(transformPos());
 
         transform.LookAt(playerSphere.transform);
+    }
+
+    IEnumerator transformPos()
+    {
+        if (Input.touchCount == 2)
+        {
+            z = map(min, max, offset, 0, transform.position.y);
+            transform.position = new Vector3(transform.position.x, transform.position.y, z);
+        }
+
+        yield return null;
     }
 
 
