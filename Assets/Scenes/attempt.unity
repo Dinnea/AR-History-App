@@ -1532,7 +1532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9110053624635212268, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
       propertyPath: _latitudeLongitude.Array.data[0]
-      value: 52.265, 6.891
+      value: 52.219531, 6.889501
       objectReference: {fileID: 0}
     - target: {fileID: 9110053624635212268, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
       propertyPath: _latitudeLongitude.Array.data[1]
@@ -1596,15 +1596,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9110591372851712046, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
       propertyPath: _imagery._layerProperty.rasterOptions.useMipMap
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9110591372851712046, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
       propertyPath: _imagery._layerProperty.rasterOptions.useRetina
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9110591372851712046, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
       propertyPath: _imagery._layerProperty.rasterOptions.useCompression
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9110591372851712046, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
       propertyPath: _imagery._layerProperty.sourceOptions.layerSource.Id
@@ -1657,6 +1657,18 @@ PrefabInstance:
     - target: {fileID: 9217578855755238420, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220381678945411196, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220381678945411196, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220381678945411196, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9221634515212598162, guid: 7f000dd268034c043b9b920cf627ab18, type: 3}
       propertyPath: m_IsActive

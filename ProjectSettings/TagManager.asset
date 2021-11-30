@@ -7,11 +7,12 @@ TagManager:
   - POI
   - Label
   - Plane
+  - 2D pin
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcessing
   - Water
   - UI
   - 
