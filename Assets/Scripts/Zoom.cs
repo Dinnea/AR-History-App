@@ -26,7 +26,7 @@ public class Zoom : MonoBehaviour
     public float offset = -100;
 
     public GameObject rotateAround;
-   
+
     private float v;
     private float z;
 
@@ -61,20 +61,6 @@ public class Zoom : MonoBehaviour
     void Update()
     {
         transform.LookAt(rotateAround.transform);
-
-        transform.position = Spherical.ToCartesian(spherPos.radius, spherPos.theta, spherPos.phi);
-
-        if (Input.GetKey(KeyCode.H))
-        {
-            //transform.RotateAround(rotateAround.transform.position, -rotateAround.transform.right, w);
-            //w = 0 means 2D mode. w = max value is 90 - startRot, in this case 70
-            //
-            //this means that min-max y position needs to be mapped to 
-
-            spherPos.theta += 1;
-        }
-
-        
 
         if (Input.touchCount == 2)
         {
@@ -111,6 +97,7 @@ public class Zoom : MonoBehaviour
             tiltMap();
         }
 
+        /*
         if (isTilting)
         {
             if (Input.touchCount == 1)
@@ -128,6 +115,7 @@ public class Zoom : MonoBehaviour
                 transform.RotateAround(rotateAround.transform.position, rotateAround.transform.up, -angle);
             } 
         }
+        */
 
         //sphericalPos = Spherical.FromCartesian(transform.position);
     }
@@ -195,38 +183,16 @@ public class Zoom : MonoBehaviour
 
     private void tiltMap()
     {
-        /*
-        if (transform.position.y > min && transform.position.y < max)
-        {
-
-            w = map(min, max, 70, 0, transform.position.y);
-            transform.RotateAround(rotateAround.transform.position, -rotateAround.transform.right, w);
-
-            
-            v = map(min, max, 0, 1, transform.position.y);
-            transform.rotation = Quaternion.Slerp(q_startRot, q_endRot, v);
-
-            z = map(min, max, offset, 0, transform.position.y);
-            transform.position = new Vector3(transform.position.x, transform.position.y, z);
-            
-
-            isTilting = true;
-        }
-        */
-
-        
-
 
         //StartCoroutine(transformPos());
 
-        /*
+
         if (transform.position.y > min && transform.position.y < max)
         {
-            v = map(min, max, 0, 1, transform.position.y);
-            transform.rotation = Quaternion.Slerp(q_startRot, q_endRot, v);
-            
-            z = map(min, max, offset, 0, transform.position.y);
-            transform.position = new Vector3(transform.position.x, transform.position.y, z);
+            w = map(min, max, 70, 0, transform.position.y);
+            w = Mathf.Clamp(w, 0, 70);
+            spherPos.theta = w;
+            transform.position = Spherical.ToCartesian(spherPos.radius, spherPos.theta, spherPos.phi);
 
             isTilting = true;
         }
@@ -243,10 +209,10 @@ public class Zoom : MonoBehaviour
             {
                 transform.rotation = q_startRot;
                 transform.position += new Vector3(0, 0, offset - transform.position.z);
-                isTilting = true;
+                isTilting = false;
             }
         }
-        */
+
     }
 
     /*
