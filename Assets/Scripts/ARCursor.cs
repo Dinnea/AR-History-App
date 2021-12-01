@@ -17,6 +17,8 @@ public class ARCursor : MonoBehaviour
     public bool isSceneAdded = false;
     public bool arePlanesOn = true;
 
+    public Vector3 offset = new Vector3(0, 0, 0);
+
     [SerializeField] List<GameObject> popUps = new List<GameObject>(4);
 
     private void Start()
@@ -44,7 +46,7 @@ public class ARCursor : MonoBehaviour
                 raycastManager.Raycast(Input.GetTouch(0).position, hits, TrackableType.Planes);
                 if (hits.Count >0) 
                 {
-                    GameObject.Instantiate(placeholder, hits[0].pose.position, hits[0].pose.rotation, AR.transform);
+                    GameObject.Instantiate(placeholder, hits[0].pose.position + offset, hits[0].pose.rotation);
                     /*  ListOfObjects list = placeholder.GetComponent<ListOfObjects>();
                       foreach(GameObject model in list.objectsInScene) 
                       {
