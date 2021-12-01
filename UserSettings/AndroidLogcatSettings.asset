@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R58M54DNQFP",
         "name": "com.BeandustCrusaders.ToThePast",
-        "processId": 26596,
+        "processId": 12927,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -192,6 +192,24 @@
             "deviceId": "R58M54DNQFP",
             "name": "com.BeandustCrusaders.ToThePast",
             "processId": 26596,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.BeandustCrusaders.ToThePast",
+            "processId": 30602,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.BeandustCrusaders.ToThePast",
+            "processId": 31285,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.BeandustCrusaders.ToThePast",
+            "processId": 12927,
             "exited": false
         },
         {

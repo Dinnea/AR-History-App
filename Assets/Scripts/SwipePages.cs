@@ -32,11 +32,12 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
     public GameObject cube;
 
     [SerializeField] GameObject _toggle;
+    [SerializeField] GameObject _toggle2;
 
     void Start()
     {
         swipingEnabled = true;
-
+        _toggle2.SetActive(false);
         white = Color.white;
         grey = Color.grey;
 
@@ -74,6 +75,7 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (swipingEnabled)
         {
+            
             Debug.Log("ONENDDRAG");
             //calculate what the percentage of the length of the drag relative to the screenwidth is
             float percentage = (data.pressPosition.x - data.position.x) / Screen.width;
@@ -141,6 +143,7 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
             dot2.sprite = notSelected;
             dot3.sprite = notSelected;
             _toggle.SetActive(false);
+            _toggle2.SetActive(false);
         }
         if (panelLocation.x == panelLocations[1])
         {
@@ -149,6 +152,7 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
             dot2.sprite = selected;
             dot3.sprite = notSelected;
             _toggle.SetActive(false);
+            _toggle2.SetActive(false);
         }
         if (panelLocation.x == panelLocations[2])
         {
@@ -157,6 +161,7 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
             dot2.sprite = notSelected;
             dot3.sprite = selected;
             _toggle.SetActive(true);
+            _toggle2.SetActive(false);
         }
     }
 
