@@ -43,8 +43,16 @@ public class Zoom : MonoBehaviour
     public bool isZooming;
     public bool isRotating;
 
+    public float w;
+
+    [SerializeField] public Spherical spherPos;
+
+
     void Start()
     {
+        spherPos = Spherical.FromCartesian(transform.position);
+
+
         //convert Euler angles to Quaternions
         q_startRot = Quaternion.Euler(startRot);
         q_endRot = Quaternion.Euler(endRot);
@@ -52,6 +60,21 @@ public class Zoom : MonoBehaviour
 
     void Update()
     {
+        transform.LookAt(rotateAround.transform);
+
+        transform.position = Spherical.ToCartesian(spherPos.radius, spherPos.theta, spherPos.phi);
+
+        if (Input.GetKey(KeyCode.H))
+        {
+            //transform.RotateAround(rotateAround.transform.position, -rotateAround.transform.right, w);
+            //w = 0 means 2D mode. w = max value is 90 - startRot, in this case 70
+            //
+            //this means that min-max y position needs to be mapped to 
+
+            spherPos.theta += 1;
+        }
+
+        
 
         if (Input.touchCount == 2)
         {
@@ -88,20 +111,25 @@ public class Zoom : MonoBehaviour
             tiltMap();
         }
 
-        if (isTilting && Input.touchCount == 1)
+        if (isTilting)
         {
-            Debug.Log("one touch");
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchPrevPos = touch.position - touch.deltaPosition;
+            if (Input.touchCount == 1)
+            {
+                //Rotate around player in 3D mode
+                Touch touch = Input.GetTouch(0);
+                Vector2 touchPrevPos = touch.position - touch.deltaPosition;
 
-            Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
+                Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
 
-            Vector3 prevDir = touchPrevPos - screenCenter;
-            Vector3 currDir = touch.position - screenCenter;
-            float angle = Vector2.SignedAngle(prevDir, currDir);
+                Vector3 prevDir = touchPrevPos - screenCenter;
+                Vector3 currDir = touch.position - screenCenter;
+                float angle = Vector2.SignedAngle(prevDir, currDir);
 
-            transform.RotateAround(rotateAround.transform.position, rotateAround.transform.up, -angle);
-        }  
+                transform.RotateAround(rotateAround.transform.position, rotateAround.transform.up, -angle);
+            } 
+        }
+
+        //sphericalPos = Spherical.FromCartesian(transform.position);
     }
 
     void rotateOrZoom()
@@ -167,8 +195,31 @@ public class Zoom : MonoBehaviour
 
     private void tiltMap()
     {
+        /*
+        if (transform.position.y > min && transform.position.y < max)
+        {
+
+            w = map(min, max, 70, 0, transform.position.y);
+            transform.RotateAround(rotateAround.transform.position, -rotateAround.transform.right, w);
+
+            
+            v = map(min, max, 0, 1, transform.position.y);
+            transform.rotation = Quaternion.Slerp(q_startRot, q_endRot, v);
+
+            z = map(min, max, offset, 0, transform.position.y);
+            transform.position = new Vector3(transform.position.x, transform.position.y, z);
+            
+
+            isTilting = true;
+        }
+        */
+
+        
+
+
         //StartCoroutine(transformPos());
 
+        /*
         if (transform.position.y > min && transform.position.y < max)
         {
             v = map(min, max, 0, 1, transform.position.y);
@@ -195,6 +246,7 @@ public class Zoom : MonoBehaviour
                 isTilting = true;
             }
         }
+        */
     }
 
     /*
