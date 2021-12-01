@@ -8,6 +8,7 @@ public class TapThePOI_v2 : MonoBehaviour
     private RaycastHit _hitInfo = new RaycastHit();
     private GameObject _tapped;
     [SerializeField] GameObject _ui;
+    [SerializeField] GameObject _button;
     private void Update()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) 
@@ -29,6 +30,8 @@ public class TapThePOI_v2 : MonoBehaviour
                     if (_hitInfo.transform.gameObject.name == "Twente Airport")
                     {
                         _ui.SetActive(true);
+                        _button.SetActive(false);
+
                     }
                 }
             }

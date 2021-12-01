@@ -34,8 +34,9 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private GameObject _map;
 
-    [SerializeField] private Camera _mapCamera;
-    [SerializeField] private Camera _ARCamera;
+    [SerializeField] Sprite OffSprite;
+    [SerializeField] Sprite OnSprite;
+    [SerializeField] Image thisSwitch;
 
     private void OnEnable()
     {
@@ -44,7 +45,7 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         offY = _toggleIndicator.anchoredPosition.y;
-        onY = backgroundImage.rectTransform.rect.height -2.3f*_toggleIndicator.rect.height;
+        onY = backgroundImage.rectTransform.rect.height -2.1f*_toggleIndicator.rect.height;
         _audioSource = this.GetComponent<AudioSource>();
     }
 
@@ -80,9 +81,19 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
         if (value) _toggleIndicator.DOAnchorPosY(onY, tweenTime);
         else _toggleIndicator.DOAnchorPosY(offY, tweenTime);
     }
+    public void ChangeImage()
+    {
+        if (thisSwitch.sprite == OnSprite)
+            thisSwitch.sprite = OffSprite;
+        else
+        {
+            thisSwitch.sprite = OnSprite;
+        }
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        ChangeImage();
         Toggle(!isOn); 
     }
 }
