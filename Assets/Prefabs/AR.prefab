@@ -173,6 +173,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 752186145839844088}
+  - {fileID: 752186145818024389}
   m_Father: {fileID: 4251866527703266139}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -429,12 +430,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752186145818024395}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3602.6667, y: -1142.6666, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 752186144028266279}
-  m_Father: {fileID: 4251866527703266139}
-  m_RootOrder: 5
+  m_Father: {fileID: 752186145429191775}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &752186145818024388
 MonoBehaviour:
@@ -454,9 +455,11 @@ MonoBehaviour:
   toggle: {fileID: 752186145429191770}
   AR: {fileID: 4046899432076289093}
   arCamera: {fileID: 752186145839844092}
+  _anchorManager: {fileID: 0}
   useCursor: 0
   isSceneAdded: 0
   arePlanesOn: 1
+  offset: {x: 0, y: 0, z: 1}
   popUps:
   - {fileID: 0}
 --- !u!1 &752186145839844035
@@ -611,7 +614,6 @@ Transform:
   - {fileID: 752186143766081892}
   - {fileID: 752186145429191775}
   - {fileID: 752186144149413674}
-  - {fileID: 752186145818024389}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
