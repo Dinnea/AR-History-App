@@ -28,6 +28,8 @@ public class SwipeInstructionPages : MonoBehaviour, IDragHandler, IEndDragHandle
     [SerializeField] Sprite selected;
     [SerializeField] Sprite notSelected;
 
+    [SerializeField] AudioSource _swipe;
+
     void Start()
     {
         swipingEnabled = true;
@@ -57,6 +59,8 @@ public class SwipeInstructionPages : MonoBehaviour, IDragHandler, IEndDragHandle
 
             //set position of panelHolder by subtracting the difference from the original position
             transform.position = panelLocation - new Vector3(difference, 0, 0);
+
+            _swipe.Play();
         }
     }
 

@@ -34,6 +34,8 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
     [SerializeField] GameObject _toggle;
     [SerializeField] GameObject _toggle2;
 
+    [SerializeField] AudioSource _swipe;
+
     void Start()
     {
         swipingEnabled = true;
@@ -68,6 +70,7 @@ public class SwipePages : MonoBehaviour, IDragHandler, IEndDragHandler
 
             //set position of panelHolder by subtracting the difference from the original position
             transform.position = panelLocation - new Vector3(difference, 0, 0);
+            _swipe.Play();
         }
     }
 
