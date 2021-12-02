@@ -18,7 +18,7 @@ public class ARCursor : MonoBehaviour
     public bool isSceneAdded = false;
     public bool arePlanesOn = true;
 
-    public Vector3 offset = new Vector3(0, 0, 1);
+    public Vector3 offset = new Vector3(0, 0, 10);
 
     [SerializeField] List<GameObject> popUps = new List<GameObject>(4);
 
@@ -60,21 +60,10 @@ public class ARCursor : MonoBehaviour
             }
         }
         else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && isSceneAdded) 
-        { 
-            Ray ray = arCamera.ScreenPointToRay(Input.GetTouch(0).position);
-            TextHelper.Instance.SetText("Trying to ray cast");
-            RaycastHit objectPressed;
-            Debug.DrawRay(ray.origin, ray.direction, Color.blue, 5.0f);
-            if(Physics.Raycast(ray, out objectPressed)) 
-            {
-                TextHelper.Instance.SetText(objectPressed.rigidbody.gameObject.name);
-                if (objectPressed.transform.CompareTag("Plane")) 
-                {
-                    popUps[3].SetActive(true);
-                }
-            }
+        {
+            TapPlane();
 
-            List<ARRaycastHit> hits = new List<ARRaycastHit>();
+           /* List<ARRaycastHit> hits = new List<ARRaycastHit>();
             raycastManager.Raycast(Input.GetTouch(0).position, hits);
             if (hits.Count > 0)
             {
@@ -83,13 +72,13 @@ public class ARCursor : MonoBehaviour
                   foreach(GameObject model in list.objectsInScene) 
                   {
                       model.transform.SetParent(AR.transform, true);
-                  }*/
+                  }
                 //isSceneAdded = true;
                 if (objectPressed.transform.CompareTag("Plane"))
                 {
-                   // popUps[3].SetActive(true);
+                    popUps[3].SetActive(true);
                 }
-            }
+            }*/
         }
 
         /*if (isSceneAdded && arePlanesOn)
@@ -123,7 +112,7 @@ public class ARCursor : MonoBehaviour
             // Otherwise, just create a regular anchor at the hit pose
 
             // Note: the anchor can be anywhere in the scene hierarchy
-            var instantiatedObject = Instantiate(placeholder, hit.pose.position, hit.pose.rotation, null);
+            var instantiatedObject = Instantiate(placeholder, hit.pose.position +offset, hit.pose.rotation, null);
 
         // Make sure the new GameObject has an ARAnchor component
         anchor = instantiatedObject.GetComponent<ARAnchor>();
@@ -148,13 +137,21 @@ public class ARCursor : MonoBehaviour
         }
     }
 
-   
-        // Code to execute after the delay
-        //iteration 1:
-        //turn off panel #1
-        //turn on panel #2
-        //iteration 2:
-        //tun off panel 2
-        //turn on panel 3
-        //iteration 3 turn off panel 3
+    void TapPlane()
+    {
+        Ray ray = arCamera.ScreenPointToRay(Input.GetTouch(0).position);
+        Debug.Log("Trying to ray cast");
+        RaycastHit objectPressed;
+        Debug.DrawRay(ray.origin, ray.direction, Color.blue, 999.0f);
+        if (Physics.Raycast(ray, out objectPressed))
+        {
+            Debug.Log(objectPressed.transform.gameObject.name);
+            if (objectPressed.transform.CompareTag("Plane"))
+            {
+                popUps[3].SetActive(true);
+            }
+        }
+    }
+
+    //mac n cheese
 }
