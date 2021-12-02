@@ -11,8 +11,12 @@ public class CinemachineSwitcher : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera vcam2;
 
+    [SerializeField] GameObject pin;
+
     Zoom zoomScript1;
     Zoom3D zoomScript2;
+
+    
 
     public bool overworldCamera = true;
 
@@ -44,6 +48,7 @@ public class CinemachineSwitcher : MonoBehaviour
         else if (vcam2.transform.position.y > zoomScript2.switchCameraThreshold)
         {
             switchPriority();
+            vcam1.transform.rotation = pin.transform.rotation;
             while (vcam2.transform.position.y > zoomScript2.switchCameraThreshold)
             {
                 vcam2.transform.position -= new Vector3(0, 1, 0);
