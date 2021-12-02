@@ -24,7 +24,7 @@ public class Display2DPin : MonoBehaviour
         }
         else
         {
-            if (Camera.main.transform.position.y < zoomScript.max)
+            if (Camera.main.transform.position.y < zoomScript.switchCameraThreshold)
             {
                 foreach (GameObject pin in flatPins)
                 {
