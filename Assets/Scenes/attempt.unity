@@ -1385,7 +1385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &402145968
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4791,16 +4791,43 @@ PrefabInstance:
     m_TransformParent: {fileID: 990059284}
     m_Modifications:
     - target: {fileID: 3616318840039644604, guid: 539d42989e902e34cb0718d372b931f4, type: 3}
+      propertyPath: m_text
+      value: The junkers Ju 87 is a german made dive bomber widely used during the
+        early years of WW2. The airplane is known for its loud roar while dive bombing,
+        it was used most notably during the battle for Britain and the invasion of
+        France.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3616318840039644604, guid: 539d42989e902e34cb0718d372b931f4, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3616318840039644604, guid: 539d42989e902e34cb0718d372b931f4, type: 3}
+      propertyPath: m_margin.z
+      value: 174.86374
+      objectReference: {fileID: 0}
+    - target: {fileID: 3616318840039644604, guid: 539d42989e902e34cb0718d372b931f4, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 51c8bfefeccb49240a5f3ec7552ad61b, type: 2}
     - target: {fileID: 3616318840039644604, guid: 539d42989e902e34cb0718d372b931f4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3616318840039644604, guid: 539d42989e902e34cb0718d372b931f4, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -3150632370929110554, guid: e7071298fb4153c4496e9bcfd7f4d6cd, type: 2}
+      objectReference: {fileID: -6832534178419420137, guid: 51c8bfefeccb49240a5f3ec7552ad61b, type: 2}
     - target: {fileID: 3616318840039644604, guid: 539d42989e902e34cb0718d372b931f4, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3616318840039644605, guid: 539d42989e902e34cb0718d372b931f4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3616318840039644605, guid: 539d42989e902e34cb0718d372b931f4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3616318840051912976, guid: 539d42989e902e34cb0718d372b931f4, type: 3}
       propertyPath: m_Type

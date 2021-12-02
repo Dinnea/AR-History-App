@@ -50,21 +50,18 @@ public class LoadingScreen : MonoBehaviour
 
         if (passedTime > timeBetweenDots && passedTime < (timeBetweenDots * 2))
         {
-            Debug.Log("dot1");
             dot1.sprite = selected;
             dot2.sprite = notSelected;
             dot3.sprite = notSelected;
         }
         if (passedTime > (timeBetweenDots*2) && passedTime < (timeBetweenDots * 3))
         {
-            Debug.Log("dot2");
             dot1.sprite = notSelected;
             dot2.sprite = selected;
             dot3.sprite = notSelected;
         }
         if (passedTime > (timeBetweenDots*3) && passedTime < (timeBetweenDots * 4))
         {
-            Debug.Log("dot3");
             dot1.sprite = notSelected;
             dot2.sprite = notSelected;
             dot3.sprite = selected;
