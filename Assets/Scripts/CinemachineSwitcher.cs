@@ -11,6 +11,9 @@ public class CinemachineSwitcher : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera vcam2;
 
+    [SerializeField]
+    private GameObject dummypinsCanvas;
+
     [SerializeField] GameObject pin;
 
     Zoom zoomScript1;
@@ -62,11 +65,15 @@ public class CinemachineSwitcher : MonoBehaviour
         {
             vcam1.Priority = 0;
             vcam2.Priority = 1;
+
+            dummypinsCanvas.SetActive(false);
         }
         else
         {
             vcam1.Priority = 1;
             vcam2.Priority = 0;
+
+            dummypinsCanvas.SetActive(true);
         }
         overworldCamera = !overworldCamera;
     }

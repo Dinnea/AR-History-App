@@ -9,6 +9,7 @@ public class TapThePOI_v2 : MonoBehaviour
     private GameObject _tapped;
     [SerializeField] GameObject _ui;
     [SerializeField] GameObject _map;
+    [SerializeField] GameObject _buttons;
     private void Update()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) 
@@ -31,6 +32,7 @@ public class TapThePOI_v2 : MonoBehaviour
                     {
                         _ui.SetActive(true);
                         _map.SetActive(false);
+                        _buttons.SetActive(false);
 
                     }
                 }

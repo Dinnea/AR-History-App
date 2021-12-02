@@ -6,10 +6,10 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using System;
 
-public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
+public class Toggle2 : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private bool _isOn = false;
-    public bool isOn 
+    public bool isOn
     {
         get
         {
@@ -30,14 +30,7 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
     public delegate void ValueChange(bool value);
     public event ValueChange valueChanged;
 
-    [SerializeField] private GameObject _AR;
-    [SerializeField] private GameObject _mainUI;
-    [SerializeField] private GameObject _map;
 
-    [SerializeField] Sprite OffSprite;
-    [SerializeField] Sprite OnSprite;
-    [SerializeField] Image thisSwitch;
-    [SerializeField] GameObject buttons;
 
     private void OnEnable()
     {
@@ -46,30 +39,21 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         offY = _toggleIndicator.anchoredPosition.y;
-        onY = backgroundImage.rectTransform.rect.height -2.1f*_toggleIndicator.rect.height;
+        onY = backgroundImage.rectTransform.rect.height - 2.25f * _toggleIndicator.rect.height;
         _audioSource = this.GetComponent<AudioSource>();
     }
 
-    public void Toggle(bool value, bool playSFX = true) 
-    { 
-        if (value != isOn) 
+    public void Toggle(bool value, bool playSFX = true)
+    {
+        if (value != isOn)
         {
             _isOn = value;
             ToggleColour(isOn);
             MoveIndicator(isOn);
-            EnableAR(isOn);
 
             if (playSFX) _audioSource.Play();
             if (valueChanged != null) valueChanged(isOn);
         }
-    }
-
-    private void EnableAR(bool value)
-    {
-        _AR.SetActive(value);
-        _mainUI.SetActive(!value);
-        _map.SetActive(!value);
-        buttons.SetActive(!value);
     }
 
     private void ToggleColour(bool value)
@@ -83,19 +67,9 @@ public class ToggleSwitch : MonoBehaviour, IPointerDownHandler
         if (value) _toggleIndicator.DOAnchorPosY(onY, tweenTime);
         else _toggleIndicator.DOAnchorPosY(offY, tweenTime);
     }
-    public void ChangeImage()
-    {
-        if (thisSwitch.sprite == OnSprite)
-            thisSwitch.sprite = OffSprite;
-        else
-        {
-            thisSwitch.sprite = OnSprite;
-        }
-    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        ChangeImage();
-        Toggle(!isOn); 
+        Toggle(!isOn);
     }
 }
