@@ -11,11 +11,15 @@ public class CinemachineSwitcher : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera vcam2;
 
-    private bool overworldCamera = true;
+    Zoom zoomScript1;
+    Zoom3D zoomScript2;
+
+    public bool overworldCamera = true;
 
     void Start()
     {
-        
+        zoomScript1 = vcam1.GetComponent<Zoom>();
+        zoomScript2 = vcam2.GetComponent<Zoom3D>();
     }
 
     private void Update()
@@ -23,6 +27,27 @@ public class CinemachineSwitcher : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             switchPriority();
+        }
+
+        if (overworldCamera)
+        {
+            if (vcam1.transform.position.y < zoomScript1.switchCameraThreshold)
+            {
+                switchPriority();
+                while (vcam1.transform.position.y < zoomScript1.switchCameraThreshold)
+                {
+                    vcam1.transform.position += new Vector3(0, 1, 0);
+                }
+
+            }
+        }
+        else if (vcam2.transform.position.y > zoomScript2.switchCameraThreshold)
+        {
+            switchPriority();
+            while (vcam2.transform.position.y > zoomScript2.switchCameraThreshold)
+            {
+                vcam2.transform.position -= new Vector3(0, 1, 0);
+            }
         }
     }
 
